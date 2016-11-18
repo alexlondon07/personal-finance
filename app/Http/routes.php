@@ -43,18 +43,11 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'auth'), function() {
   //Home
   Route::resource('main', 'HomeController@main');
 
-  //Usuarios
+  //Users
   Route::resource('user', 'UserController');
   Route::get('user/{slug}', ['as' => 'post', 'uses' => 'UserController@show']);
-  Route::get('users/search', 'UserController@search');
 
-  //Cursos
-  Route::resource('course', 'CourseController');
-  Route::get('course/{slug}', ['as' => 'post', 'uses' => 'CourseController@show']);
-  Route::get('courses/search', 'CourseController@search');
-
-  //Estudiantes
-  Route::resource('student', 'StudentController');
-  Route::get('student/{slug}', ['as' => 'post', 'uses' => 'StudentController@show']);
-  Route::get('students/search', 'StudentController@search');
+  //Products
+  Route::resource('product', 'ProductController');
+  Route::get('product/{slug}', ['as' => 'post', 'uses' => 'ProductController@show']);
 });

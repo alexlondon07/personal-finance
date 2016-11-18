@@ -5,9 +5,8 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Routing\Route;
 
-class EditStudentRequest extends Request
+class EditProductRequest extends Request
 {
-
 
     public function __construct(Route $route){
       $this->route=$route;
@@ -31,12 +30,10 @@ class EditStudentRequest extends Request
     public function rules()
     {
       return [
-              'name' => 'required|max:100',
-              'first_surname' => 'required|max:100',
-              'document_of_identity'  => 'required|unique:students,document_of_identity,' .$this->route->getParameter('student'),
-              'email'  => 'required|email|unique:students,email,' .$this->route->getParameter('student'),
-              'enable'=>'in:CC,CE,TI,NIT',
-              'enable'=>'in:si,no'
+        'name' => 'required|max:100',
+        'code'  => 'required|max:100|unique:products,code,' .$this->route->getParameter('product'),
+        'cost' => 'required|numeric',
+        'price' => 'required|numeric'
       ];
     }
 }

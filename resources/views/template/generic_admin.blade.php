@@ -110,11 +110,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Optionally, you can add icons to the links -->
           {{-- <li class="active"><a href="{{URL::to('/')}}/admin/user" title="Usuarios"><span>Usuarios</span></a></li> --}}
           @if (Auth::user())
-          <li><a href="{{URL::to('/')}}/admin/user" title="Users">Users</a></li>
+          <li><a href="{{ URL::to('/')}}/admin/user" title="Users">Users</a></li>
           <li class="treeview">
             <a href="#"><span>Business Shoes</span> <i class="fa fa-angle-left pull-right"></i></a>
             <ul class="treeview-menu">
-              <li><a href="#" title="Products">Products</a></li>
+              <li><a href="{{ URL::to('/')}}/admin/product" title="Products">Products</a></li>
               <li><a href="#" title="Clients">Clients</a></li>
               <li><a href="#" title="Orders">Orders</a></li>
               <li><a href="#" title="Abonos">Abonos</a></li>

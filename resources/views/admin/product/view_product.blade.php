@@ -8,7 +8,7 @@
     <div class="row">
       <div class="main">
 
-        <h2 class="page-header">Users</h2>
+        <h2 class="page-header">Products</h2>
 
         <!--Mensajes-->
         @include('admin.alert.messages-success')
@@ -16,23 +16,22 @@
 
         <div class="row">
           <div class="col-sm-12">
-            <a style="margin:0px 0 15px" href="{!! URL::to('/') !!}/admin/user/create" class="btn btn-primary pull-right">Create User</a>
+            <a style="margin:0px 0 15px" href="{!! URL::to('/') !!}/admin/product/create" class="btn btn-primary pull-right">Create Product</a>
           </div>
         </div>
 
         <div class="table-responsive">
           @if (count($items) > 0)
-            <table id="users" class="table table-striped">
+            <table id="products" class="table table-striped">
               @if($items->isEmpty())
                 <div class="well text-center">No records found</div>
               @else
                 <thead>
                   <tr>
                     <th>Actions</th>
-                    <th>Document</th>
+                    <th>Code</th>
                     <th>Name</th>
-                    <th>Nickname</th>
-                    <th>Profile</th>
+                    <th>Description</th>
                     <th>Enable</th>
                     <th>Photo</th>
                   </tr>
@@ -43,20 +42,19 @@
                       <td style="width: 150px !important">
                         <table>
                           <tr>
-                            <td><a title="View" href="{!! URL::to('/') !!}/admin/user/{!! $item->slug !!}"><span class="glyphicon glyphicon-eye-open btn btn-default btn-xs"></span></a></td>
-                            <td><a title="Edit" href="{!! URL::to('/') !!}/admin/user/{!! $item->id !!}/edit"><span class="glyphicon glyphicon-pencil btn btn-default btn-xs"></span></a></td>
+                            <td><a title="View" href="{!! URL::to('/') !!}/admin/product/{!! $item->slug !!}"><span class="glyphicon glyphicon-eye-open btn btn-default btn-xs"></span></a></td>
+                            <td><a title="Edit" href="{!! URL::to('/') !!}/admin/product/{!! $item->id !!}/edit"><span class="glyphicon glyphicon-pencil btn btn-default btn-xs"></span></a></td>
                             <td>
-                              {!! Form::open(['action' => ['UserController@destroy', $item->id], 'method' => 'delete', 'style' => 'display: inline;']) !!}
+                              {!! Form::open(['action' => ['ProductController@destroy', $item->id], 'method' => 'delete', 'style' => 'display: inline;']) !!}
                                 <button title="Delete" type="submit" onclick="return Util.confirmDelete(this);" class="glyphicon glyphicon-trash btn btn-default btn-xs"></button>
                               {!! Form::close() !!}
                             </td>
                           </tr>
                         </table>
                       </td>
-                      <td>{!! $item->document !!}</td>
+                      <td>{!! $item->code !!}</td>
                       <td>{!! $item->name !!}</td>
-                      <td>{!! $item->email !!}</td>
-                      <td>{!! $item->profile !!}</td>
+                      <td>{!! $item->description !!}</td>
                       <td>{!! $item->enable !!}</td>
                       <td>
                         @if(count($item->attachment) > 0)
@@ -80,5 +78,5 @@
 @stop
 
 @section('javascript_content')
-  <script type="text/javascript" src="{{ URL::to('/') }}/js/User.js"></script>
+  <script type="text/javascript" src="{{ URL::to('/') }}/js/Product.js"></script>
 @stop

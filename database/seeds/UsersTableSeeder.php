@@ -13,6 +13,7 @@ class UsersTableSeeder extends Seeder
     {
       DB::table('attachment')->truncate();
       DB::table('users')->truncate();
+      DB::table('products')->truncate();
 
       factory(App\User::class)->create([
           'name' => 'Alexander andres londoño espejo',
@@ -22,6 +23,7 @@ class UsersTableSeeder extends Seeder
           'enable' => 'si',
           'remember_token' => str_random(10)
       ]);
-      factory(App\User::class, 100)->create();
+      factory(App\User::class, 5)->create();
+      factory(App\Product::class, 5)->create();
     }
 }

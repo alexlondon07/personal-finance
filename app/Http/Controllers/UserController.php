@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use App\User;
 use App\Attachment;
 use View;
@@ -148,42 +149,5 @@ class UserController extends Controller
       Auth::logout();
     }
     return Redirect::to('/');
-  }
-
-  /**
-  * Metodo para hacer la busqueda
-  */
-  public static function search(Request $request) {
-    $items = array();
-    $search = '';
-    if ($request->input('search')) {
-      $search = $request->input('search');
-      $arrparam = explode(' ', $search);
-      $items = User::whereNested(function($q) use ($arrparam) {
-        $p = $arrparam[0];
-        $q->whereNested(function($q) use ($p) {
-          $q->where('id', 'LIKE', '%' . $p . '%');
-          $q->orwhere('name', 'LIKE', '%' . $p . '%');
-          $q->orwhere('email', 'LIKE', '%' . $p . '%');
-          $q->orwhere('enable', 'LIKE', '%' . $p . '%');
-        });
-        $c = count($arrparam);
-        if ($c > 1) {
-          for ($i = 1; $i < $c; $i++) {
-            $p = $arrparam[$i];
-            $q->whereNested(function($q) use ($p) {
-              $q->where('id', 'LIKE', '%' . $p . '%');
-              $q->orwhere('name', 'LIKE', '%' . $p . '%');
-              $q->orwhere('email', 'LIKE', '%' . $p . '%');
-              $q->orwhere('enable', 'LIKE', '%' . $p . '%');
-            }, 'OR');
-          }
-        }
-      })
-      ->whereNull('deleted_at')
-      ->orderBy('name', 'ASC')
-      ->paginate(10);
-      return View::make('admin.user.view_user', compact('items', 'search'));
-    }
   }
 }

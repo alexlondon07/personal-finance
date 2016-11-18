@@ -1,0 +1,12 @@
+<div class="form-group">
+    {!!Form::label('file', 'Photo Related', array('class' => 'control-label col-sm-2'))!!}
+    <div class="col-md-6">
+        @if(count($product->attachment) > 0)
+        <div class="wrapper">
+            <div id="image_refresh">
+                <img src="{!! URL::to('/') . DIRECTORY_SEPARATOR . $product->attachment[0]->upload_path . DIRECTORY_SEPARATOR .  $product->attachment[0]->name !!}" style="max-height: 100px"/><br><br>
+            </div>
+        </div>
+        @endif
+    </div>
+</div>

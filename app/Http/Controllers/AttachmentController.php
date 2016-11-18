@@ -9,7 +9,7 @@ class AttachmentController extends Controller {
 
     public static $RESOURCES_PATH = 'resources';
     public static $USE_FOR_USER_AVATAR= 1;
-    public static $USE_FOR_EVENT_ACTIVITY= 2;
+    public static $USE_FOR_EVENT_PRODUCT= 2;
     public static $USE_FOR_NEWS= 3;
 
     /**
@@ -224,7 +224,7 @@ class AttachmentController extends Controller {
      * @param int $field Campo de busqueda
      * @param int $id ID de la lectura
      * @param int $used_for para que se utiliza el archivo
-     * 
+     *
      */
     public static function destroyAllBy($field, $id) {
         $arr = array();
@@ -303,7 +303,7 @@ class AttachmentController extends Controller {
         }
         if (count($arr_url) == 0) {
             switch ($used_for) {
-                case AttachmentController::$USE_FOR_EVENT_ACTIVITY:
+                case AttachmentController::$USE_FOR_EVENT_PRODUCT:
                     $arr_url[] = URL::to('/') . "/images/default_event.jpg";
                     break;
                 case AttachmentController::$USE_FOR_NEWS:
@@ -318,7 +318,7 @@ class AttachmentController extends Controller {
     }
 
     /**
-     * 
+     *
      * @param string $action view|download|base64
      * <p><b>view: </b>presenta el archivo en el navegador</p>
      * <p><b>download: </b>descarga el archivo</p>
@@ -477,8 +477,4 @@ class AttachmentController extends Controller {
             return Response::json(array('valid' => false, 'error' => array($f->getError(), $f->getErrorMessage())));
         }
     }
-
-
-
-
 }

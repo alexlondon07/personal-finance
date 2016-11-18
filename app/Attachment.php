@@ -28,7 +28,7 @@ class Attachment extends Model {
      */
     public static $RULES_CREATE = array(
           'file' => 'required|mimes:jpg,jpeg,bmp,png',
-//        'size' => 'max:1024',
+        	'size' => 'max:1024',
     );
 
     /**
@@ -37,6 +37,10 @@ class Attachment extends Model {
      */
     public function user() {
         return $this->belongsTo('App\User');
+    }
+
+    public function product() {
+        return $this->belongsTo('App\Product');
     }
 
 }
