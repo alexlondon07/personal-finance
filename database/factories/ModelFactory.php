@@ -29,3 +29,11 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'enable' => 'si',
     ];
 });
+
+$factory->define(App\Client::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'cellphone' => $faker->phoneNumber,
+        'enable' => 'si',
+    ];
+});

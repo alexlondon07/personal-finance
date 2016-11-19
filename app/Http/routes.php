@@ -50,4 +50,8 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'auth'), function() {
   //Products
   Route::resource('product', 'ProductController');
   Route::get('product/{slug}', ['as' => 'post', 'uses' => 'ProductController@show']);
+
+  //Clients
+  Route::resource('client', 'ClientController');
+  Route::get('client/{slug}', ['as' => 'post', 'uses' => 'ClientController@show']);
 });

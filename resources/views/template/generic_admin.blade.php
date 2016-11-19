@@ -6,7 +6,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>App  | Finanzas Personales</title>
+  <title>Software  | Finanzas Personales</title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <!-- Bootstrap 3.3.2 -->
   <link href="{{ URL::to('bower_components/AdminLTE/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" rel="stylesheet"/>
@@ -73,10 +73,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="{{ url('/auth/logout') }}" class="btn btn-default btn-flat">Salir</a>
+                    <a href="{{ url('/auth/logout') }}" class="btn btn-default btn-flat">Loqout</a>
                   </div>
                 </li>
               </ul>
@@ -106,7 +106,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Sidebar Menu -->
         @if (Auth::user())
         <ul class="sidebar-menu">
-          <li class="header">Opciones</li>
+          <li class="header">Options</li>
           <!-- Optionally, you can add icons to the links -->
           {{-- <li class="active"><a href="{{URL::to('/')}}/admin/user" title="Usuarios"><span>Usuarios</span></a></li> --}}
           @if (Auth::user())
@@ -115,7 +115,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#"><span>Business Shoes</span> <i class="fa fa-angle-left pull-right"></i></a>
             <ul class="treeview-menu">
               <li><a href="{{ URL::to('/')}}/admin/product" title="Products">Products</a></li>
-              <li><a href="#" title="Clients">Clients</a></li>
+              <li><a href="{{ URL::to('/')}}/admin/client" title="Clients">Clients</a></li>
               <li><a href="#" title="Orders">Orders</a></li>
               <li><a href="#" title="Abonos">Abonos</a></li>
             </ul>
@@ -146,7 +146,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         Anything you want
       </div>
       <!-- Default to the left -->
-      <strong>Copyright © 2015 <a href="#">Company</a>.</strong> All rights reserved.
+      <strong>Alexlondon07 Copyright © 2016 <a href="#">Company</a>.</strong> All rights reserved.
     </footer>
 
   </div><!-- ./wrapper -->

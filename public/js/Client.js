@@ -1,8 +1,8 @@
-/** Modulo que contiene llas funciones y variables necesarias para el modulo productos
+/** Modulo que contiene llas funciones y variables necesarias para el modulo clientes
  * @author Alexander Londoño
- * @since 2016-10-25
+ * @since 2016-11-18
  */
-var Product = {};
+var Client = {};
 
 /**
  * Funcion que define variables y funciones
@@ -11,12 +11,12 @@ var Product = {};
     /**
      * Metodo que inicializa el modulo
      */
-    Product.initialize = function() {
-          $('#products').DataTable();
+    Client.initialize = function() {
+          $('#clients').DataTable();
     };
 
 })();
 /** funcion que se ejecuta al terminar el cargar el documento */
 $(function() {
-    Product.initialize();
+    Client.initialize();
 });
