@@ -26,6 +26,7 @@ class ClientController extends Controller
 
     public function find(Route $route){
       $this->client = Client::find($route->getParameter('client'));
+      $this->notFound($this->client);
     }
 
     /**

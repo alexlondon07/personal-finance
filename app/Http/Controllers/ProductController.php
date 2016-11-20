@@ -28,6 +28,7 @@ class ProductController extends Controller
 
       public function find(Route $route){
         $this->product = Product::find($route->getParameter('product'));
+        $this->notFound($this->product);
       }
 
     /**
